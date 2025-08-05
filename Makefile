@@ -67,18 +67,18 @@ CC_INCLUDE = -Iinclude
 CC_LINK =  -lGL -lglfw
 
 CXXFLAGS = -Wall -O3
-CXX_INCLUDE = -Iinclude
+CXX_INCLUDE = -Iinclude -Isrc
 CXX_LINK =  -lGL -lglfw -lX11
 
 
 CC_SOURCES = src/include/glad.c
 CC_OBJS = $(call _obj_name, $(CC_SOURCES))
 
-CXX_SOURCES = src/main.cpp
+CXX_SOURCES = src/main.cpp src/window.cpp
 CXX_OBJS = $(call _obj_name, $(CXX_SOURCES))
 
 
-_objdir = "mkdir" -p $(OBJ_FOLDER)
+_objdir = @"mkdir" -p $(OBJ_FOLDER)
 
 all: $(PROJECT_NAME)
 
